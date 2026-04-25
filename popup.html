@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florr.io Bot</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌸 Florr.io Bot</h1>
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span class="status-text">未连接</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="control-panel">
+                <h2>控制面板</h2>
+
+                <div class="control-group">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="enableBot">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="control-label">启用自动化</span>
+                </div>
+
+                <div class="control-group">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoAttack">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="control-label">自动攻击怪物</span>
+                </div>
+
+                <div class="control-group">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoLoot">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="control-label">自动拾取掉落物</span>
+                </div>
+
+                <div class="control-group">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="antiAFK">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="control-label">防挂机检测</span>
+                </div>
+            </section>
+
+            <section class="game-info">
+                <h2>游戏状态</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">生命值</span>
+                        <span class="info-value" id="healthValue">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">怪物数量</span>
+                        <span class="info-value" id="monsterCount">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">掉落物数量</span>
+                        <span class="info-value" id="lootCount">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">击杀数</span>
+                        <span class="info-value" id="killCount">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings">
+                <h2>高级设置</h2>
+
+                <div class="setting-item">
+                    <label for="attackInterval">攻击间隔 (ms)</label>
+                    <input type="number" id="attackInterval" value="500" min="100" max="2000">
+                </div>
+
+                <div class="setting-item">
+                    <label for="moveSpeed">移动速度</label>
+                    <input type="range" id="moveSpeed" min="1" max="10" value="5">
+                    <span id="moveSpeedValue">5</span>
+                </div>
+
+                <div class="setting-item">
+                    <label for="lootRadius">拾取半径</label>
+                    <input type="number" id="lootRadius" value="100" min="50" max="300">
+                </div>
+
+                <div class="setting-item">
+                    <label for="healthThreshold">生命值低阈值 (%)</label>
+                    <input type="number" id="healthThreshold" value="30" min="10" max="90">
+                </div>
+            </section>
+
+            <section class="actions">
+                <button id="startBtn" class="btn btn-primary">启动</button>
+                <button id="stopBtn" class="btn btn-secondary" disabled>停止</button>
+                <button id="resetStatsBtn" class="btn btn-outline">重置统计</button>
+            </section>
+
+            <section class="log-section">
+                <h2>日志</h2>
+                <div class="log-container" id="logContainer">
+                    <div class="log-entry">等待连接...</div>
+                </div>
+            </section>
+
+            <section class="help-section">
+                <h2>游戏说明</h2>
+                <div class="help-content">
+                    <p><strong>Florr.io</strong> 是一款网页游戏，你的角色是花朵，需要击败怪物获得掉落物来升级。</p>
+                    <ul>
+                        <li><strong>挂机</strong>: 持续进行游戏活动，无需手动操作</li>
+                        <li><strong>刷怪</strong>: 寻找并击败怪物获取经验</li>
+                        <li><strong>掉落物</strong>: 怪物死亡后掉落的道具</li>
+                        <li><strong>生命值</strong>: 角色的生命，耗尽则需要重新开始</li>
+                    </ul>
+                    <p>了解更多: <a href="https://www.florr.io" target="_blank">访问 florr.io</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <button id="viewGuideBtn" class="link-btn">查看完整指南</button>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
