@@ -24,7 +24,7 @@ Implement Florr game AFK automation. Currently not doing very well, welcome expe
 1. 打开 Microsoft Edge，进入 edge://extensions/
 2. 启用"开发者模式"
 3. 点击"加载压缩的扩展程序"
-4. 选择 e:\traeai\florr-bot\edge-extension 目录
+4. 选择 ……（这里是你的下载目录）\edge-extension 目录
 ## 使用方法
 1. 安装扩展后，打开 https://www.florr.io 游戏页面
 2. 点击扩展图标打开控制面板
